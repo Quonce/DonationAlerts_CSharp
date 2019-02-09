@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DonationAlerts_CSharp
 {
@@ -10,6 +6,17 @@ namespace DonationAlerts_CSharp
     {
         static void Main(string[] args)
         {
+            DonationAlerts donationAlerts = new DonationAlerts("YOUR SECRET TOKEN!");
+            donationAlerts.Connect();
+
+            donationAlerts.OnDonation += ShowDonation;
+
+            Console.ReadLine();
+        }
+
+        private static void ShowDonation(object data)
+        {
+            Console.WriteLine(data.ToString());
         }
     }
 }
